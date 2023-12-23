@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Delete User</title>
+</head>
+
+<body>
+  <h1>Delete User</h1>
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username">
+  <br>
+  <button onclick="deleteUser()">Delete</button>
+</body>
+<script>
+  function deleteUser() {
+    let username = document.getElementById("username").value;
+    var requestOptions = {
+      method: 'DELETE',
+      redirect: 'follow'
+    };
+    fetch("http://hc3.isl.lab.nycu.edu.tw:8100/user/" + username, requestOptions)
+      .then(response => response.text())
+      .then(result => alert(result))
+      .catch(error => alert('error', error));
+  }
+</script>
+
+</html>

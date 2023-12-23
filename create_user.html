@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Create User</title>
+</head>
+
+<body>
+  <h1>Create User</h1>
+  <span>name:</span>
+  <input id="name" type="text">
+  <br>
+  <span>phone:</span>
+  <input id="phone" type="text">
+  <br>
+  <span>identity:</span>
+  <input id="identity" type="text">
+  <br>
+  <span>img path:</span>
+  <input id="img" type="file" name="images[]" accept="image/*" multiple>
+  <br>
+  <button onclick="createUser()">submit</button>
+</body>
+<script>
+  function createUser() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let identity = document.getElementById("identity").value;
+    let img = document.getElementById("img").files;
+    var formdata = new FormData();
+    formdata.append("name", name);
+    formdata.append("phone", phone);
+    formdata.append("identity", identity);
+    for(let i = 0; i < img.length; i++){
+      formdata.append("imgs", img[i], img[i].name);
+    }
+
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+
+    fetch("http://hc3.isl.lab.nycu.edu.tw:8100/user/", requestOptions)
+      .then(response => response.text())
+      .then(result => alert(result))
+      .catch(error => alert('error', error));
+  }
+</script>
+
+</html>

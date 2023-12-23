@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Update Info</title>
+</head>
+
+<body>
+  <h1>Update Info</h1>
+  <span>name:</span>
+  <input id="name" type="text">
+  <br>
+  <span>phone:</span>
+  <input id="phone" type="text">
+  <br>
+  <span>identity:</span>
+  <input id="identity" type="text">
+  <br>
+  <button onclick="updateInfo()">submit</button>
+</body>
+<script>
+  function updateInfo() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let identity = document.getElementById("identity").value;
+    var formdata = new FormData();
+    if (phone != "") {
+      formdata.append("phone", phone);
+    }
+    if (identity != "") {
+      formdata.append("identity", identity);
+    }
+    var requestOptions = {
+      method: 'POST',
+      body: formdata,
+      redirect: 'follow'
+    };
+    fetch("http://hc3.isl.lab.nycu.edu.tw:8100/user/" + name, requestOptions)
+      .then(response => response.text())
+      .then(result => alert(result))
+      .catch(error => alert('error', error));
+  }
+</script>
+
+</html>
