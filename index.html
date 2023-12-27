@@ -4,49 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <div class="grid grid-rows-8" style="margin-top: 5%;margin-left: 12%;margin-right: 12%;">
-        <h1 class="text-4xl">DashBoard</h1>
-        <a href="create_user.html" class="text-blue-500 hover:underline hover:text-blue-700">create_user</a>
-        <a href="update_info.html" class="text-blue-500 hover:underline hover:text-blue-700">update_info</a>
-        <a href="delete_user.html" class="text-blue-500 hover:underline hover:text-blue-700">delete_user</a>
-        <a href="read_face.html" class="text-blue-500 hover:underline hover:text-blue-700">read_face</a>
-        <a href="read_info.html" class="text-blue-500 hover:underline hover:text-blue-700">read_info</a>
-        <!-- <div class="flex" style="margin-top: 5%;">
-            <div class="w-1/6 p-4 border-2 border-grey-500 rounded-md">
-                <div class="w-full h-20 flex items-center justify-center">
-                    <b><span class="text-xl">Create</span></b>
+    <div style="margin-top: 7%;margin-left: 35%;margin-right: 35%;">
+        <div class="flex flex-wrap justify-center rounded-[25px] border-4 border-sky-500">
+            <div class="text-center mt-10">
+                <div class="mx-auto w-1/2 flex items-center justify-center">
+                    <img src="static/face-id.png" class="h-20 w-20">
+                    <p class="text-5xl font-sans text-sky-500 font-bold">FRS</p>
                 </div>
-                <hr>
-                <div class="w-full h-20 flex items-center justify-center">
-
-                    <b><span class="text-xl">READ</span></b>
-
+                <div class="rounded-full border-[3px] border-sky-500 p-3 px-5 mt-8 cursor-pointer hover:bg-sky-500 hover:text-white text-2xl font-sans text-sky-500 font-bold"
+                    onclick="navigateToPage('create_user.html')">
+                    Create
                 </div>
-                <hr>
-                <div class="w-full h-20 flex items-center justify-center">
-
-                    <b><span class="text-xl">UPDATE</span></b>
-
+                <br>
+                <div class="rounded-full border-[3px] border-sky-500 p-3 px-5 mt-2 cursor-pointer hover:bg-sky-500 hover:text-white text-2xl font-sans text-sky-500 font-bold"
+                    onclick="navigateToPage('read_user.html')">
+                    Read
                 </div>
-                <hr>
-                <div class="w-full h-20 flex items-center justify-center">
-
-                    <b><span class="text-xl">DELETE</span></b>
-
+                <br>
+                <div class="rounded-full border-[3px] border-sky-500 p-3 px-5 mt-2 cursor-pointer hover:bg-sky-500 hover:text-white text-2xl font-sans text-sky-500 font-bold"
+                    onclick="navigateToPage('update_user.html')">
+                    Update
+                </div>
+                <br>
+                <div class="rounded-full border-[3px] border-sky-500 p-3 px-5 mt-2 mb-10 cursor-pointer hover:bg-sky-500 hover:text-white text-2xl font-sans text-sky-500 font-bold"
+                    onclick="navigateToPage('delete_user.html')">
+                    Delete
                 </div>
             </div>
-
-            <div class="w-5/6 bg-green-500 p-4">
-                right
-            </div>
-        </div> -->
+        </div>
     </div>
 
-    <script src="script.js"></script>
 </body>
+<script>
+    function navigateToPage(targetPage) {
+        window.location.href = targetPage;
+    }
+</script>
 
 </html>
